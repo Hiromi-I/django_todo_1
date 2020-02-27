@@ -1,6 +1,6 @@
 {
   "python.venvPath": ".venv",
-  "python.pythonPath": "/Users/hiromi/Desktop/pjt/django/django_todo_1/.venv/bin/python3.8",
+  "python.pythonPath": "${workspaceFolder}/.venv/bin/python3.8",
   "python.linting.lintOnSave": true,
   "python.linting.enabled": true,
   "python.linting.pylintEnabled": false,
