@@ -9,6 +9,9 @@ flake8 = "*"
 mypy = "*"
 
 [packages]
+django = "*"
+django-debug-toolbar = "*"
+django-environ = "*"
 
 [requires]
 python_version = "3.8"

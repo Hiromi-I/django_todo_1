@@ -1,6 +1,9 @@
 {
   "python.venvPath": ".venv",
   "python.pythonPath": "${workspaceFolder}/.venv/bin/python3.8",
+  "python.autoComplete.extraPaths": [
+    "${workspaceFolder}/.venv/lib/python3.8/site-packages"
+  ],
   "python.linting.lintOnSave": true,
   "python.linting.enabled": true,
   "python.linting.pylintEnabled": false,
