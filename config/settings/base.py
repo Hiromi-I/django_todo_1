@@ -10,8 +10,12 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
+import environ
 import os
 import pathlib
+
+env = environ.Env()
+env.read_env('.env')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = pathlib.Path(__file__).resolve().parent.parent.parent
@@ -20,7 +24,7 @@ BASE_DIR = pathlib.Path(__file__).resolve().parent.parent.parent
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'lr^$*ed%3d8%m979a=a8^u7c-d!jcjf-k9r$qvl5y09o2hl^ph'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
