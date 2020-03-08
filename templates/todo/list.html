@@ -11,5 +11,6 @@
       <li>{{ todo.title }} ({% if todo.done %}完{% else %}未完{% endif %})</li>
       {% endfor %}
     </ul>
+    <a href="{% url 'todo:todo_create' %}">Todoを作成</a>
   </body>
 </html>
