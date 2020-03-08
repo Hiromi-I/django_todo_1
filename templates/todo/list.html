@@ -8,7 +8,10 @@
   <body>
     <ul>
       {% for todo in todo_list %}
-      <li>{{ todo.title }} ({% if todo.done %}完{% else %}未完{% endif %})</li>
+      <li>
+        <a href="{% url 'todo:todo_edit' todo.id %}">{{ todo.title }}</a>
+        ({% if todo.done %}完{% else %}未完{% endif %})
+      </li>
       {% endfor %}
     </ul>
     <a href="{% url 'todo:todo_create' %}">Todoを作成</a>
