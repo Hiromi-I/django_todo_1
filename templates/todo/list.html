@@ -11,6 +11,10 @@
       <li>
         <a href="{% url 'todo:todo_edit' todo.id %}">{{ todo.title }}</a>
         ({% if todo.done %}完{% else %}未完{% endif %})
+        <form action="{% url 'todo:todo_delete' todo.id %}" method="post">
+          {% csrf_token %}
+          <button type="submit">削除</button>
+        </form>
       </li>
       {% endfor %}
     </ul>

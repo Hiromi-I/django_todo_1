@@ -34,3 +34,9 @@ def todo_edit(request, todo_id):
             return redirect('todo:todo_list')
         else:
             return render(request, 'todo/edit.html', {'form': form})
+
+
+def todo_delete(request, todo_id):
+    todo = get_object_or_404(Todo, id=todo_id)
+    todo.delete()
+    return redirect('todo:todo_list')
