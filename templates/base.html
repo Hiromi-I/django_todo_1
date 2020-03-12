@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+  </head>
+  <body>
+    <header class="pageHeader">
+      <h1>Todo App</h1>
+    </header>
+
+    <main class="pageContents">
+      <h2 class="pageHeading">{% block heading %}{% endblock %}</h2>
+      <section class="container">
+        {% block contents %}{% endblock %}
+      </section>
+    </main>
+
+    <footer class="pageFooter">
+    <p class="copyright">&copy; 2020 Todo App</p>
+    </footer>
+  </body>
+</html>
