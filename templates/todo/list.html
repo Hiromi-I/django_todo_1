@@ -1,23 +1,36 @@
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Todo List</title>
-  </head>
-  <body>
-    <ul>
-      {% for todo in todo_list %}
-      <li>
-        <a href="{% url 'todo:todo_edit' todo.id %}">{{ todo.title }}</a>
-        ({% if todo.done %}完{% else %}未完{% endif %})
+{% extends 'base.html' %}
+
+{% block title %}Todo List{% endblock %}
+
+{% block heading %}Todo List{% endblock %}
+
+{% block contents %}
+<table class="todoTable">
+  <thead>
+    <tr>
+      <th>Todo タイトル</th>
+      <th>完了状況</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for todo in todo_list %}
+    <tr>
+      <td><a href="{% url 'todo:todo_edit' todo.id %}">{{ todo.title }}</a></td>
+      <td>{% if todo.done %}完了{% else %}未完{% endif %}</td>
+      <td>
         <form action="{% url 'todo:todo_delete' todo.id %}" method="post">
           {% csrf_token %}
-          <button type="submit">削除</button>
+          <button type="submit" class="button deleteButton">削除</button>
         </form>
-      </li>
-      {% endfor %}
-    </ul>
-    <a href="{% url 'todo:todo_create' %}">Todoを作成</a>
-  </body>
-</html>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<div class="buttonContainer">
+  <a href="{% url 'todo:todo_create' %}" class="button createButton">Todoを作成</a>
+</div>
+
+{% endblock %}

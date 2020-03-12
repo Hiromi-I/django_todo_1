@@ -1,15 +1,18 @@
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Todo Edit</title>
-  </head>
-  <body>
-    <h1>Todo 編集フォーム</h1>
-    <form method="post">
-      {% csrf_token %} {{ form.as_p }}
-      <input type="submit" value="送信" />
-    </form>
-  </body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Todo 編集フォーム{% endblock %}
+
+{% block heading %}Todo 編集フォーム{% endblock %}
+
+{% block contents %}
+<form method="post">
+  {% csrf_token %}
+  <table class="editTable">
+    {{ form.as_table }}
+  </table>
+
+  <div class="buttonContainer">
+    <input type="submit" value="送信" class="button postButton" />
+  </div>
+</form>
+{% endblock %}
